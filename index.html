@@ -5,8 +5,59 @@
         <link href="./css/styles.css" rel="stylesheet" />
     </head>
     <body>
-        <h1> Look so cool </h1>
-        <p> Hello World</p>
+        <header>
+            <img id="bannerIMG" src="./img/mountain-header.jpg" alt="Banner Image" />
+        </header>
+        <div style="color: white; font-size: xx-large; text-align: right; font-weight: 800;">Ready to SHRED some POW!! Use the form below to find the CLOSEST POW!!!!!</div>
+        <main>
+                    <form class="inputClass" name="locationForm">
+                        <h1 id="inputTitle">Where are you located?</h1>
+                        <div>
+                            <label for="city" style="font-family: 'Courier New', Courier, monospace; color: white">City:</label>
+                            <input id="cityInput" type ="text" class="inputText" size="25" name = "city"><br><br>
+                        </div>
+                        <div>
+                            <label for="state" style="font-family: 'Courier New', Courier, monospace; color: white">State:</label>
+                            <input class="inputText" id="stateInput" size="25" name="state">
+                        </div>
+                        
+                    </form>
+                    <form class="inputClass" id="passInput" name="passForm"> 
+                        <h2 id="inputTitle">Which pass do you have?</h2>
+                        <div>
+                            <input type="radio" id="Any" value="Any" name="pass" checked>
+                            <label style="font-family: 'Courier New', Courier, monospace; color: white" for="Any">Any</label><br>
+                        </div>
+                        <div>
+                            <input type="radio" id="Ikon" value="Ikon" name="pass">
+                            <label style="font-family: 'Courier New', Courier, monospace; color: white" for="Ikon">Ikon</label><br>
+                        </div>
+                     <div>
+                        <input type="radio" id="Epic" value="Epic" name="pass">
+                        <label style="font-family: 'Courier New', Courier, monospace; color: white" for="Epic">Epic</label>
+                    </div>
+                    </form>
+                    <form class="inputClass" id="Input" name="travelForm">
+                        <h3 id="inputTitle"> What is your travel method?</h3>
+                        <div>
+                            <input type="radio" id="Driving" value="Driving" name="transit" checked>
+                            <label style="font-family: 'Courier New', Courier, monospace; color: white" for="Driving">Driving</label><br>
+                        </div>
+                        <div>
+                            <input type="radio" id="PublicTransit" value="Public Transit" name="transit">
+                            <label style="font-family: 'Courier New', Courier, monospace; color: white" for="PublicTransit">Public Transit</label>
+                        </div>
+                    </form>
+            <button id="submit" type="button" value="Submit" onclick="validation()">Submit</button>
+            <p id="error" style="color: white ;visibility: hidden">Pleae complete the form</p>
+            <section class= outputClass>
+
+
+
+
+            </section>
+        </main>
+        <script type="text/javascript" src="./js/actions.js"></script>
     </body>
 </html>
 
