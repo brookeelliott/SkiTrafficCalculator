@@ -13,49 +13,28 @@ var destinations = [ //[city, state, pass, name]
     ["Telluride", "CO", ,"Epic", "Telluride Resort"],
 
 ];
-let ikonURL = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${data[0]}%2C${data[1]}&destinations=${destinations[0][0]}%2C${destinations[0][1]}%7C${destinations[1][0]}%2C${destinations[1][1]}%7C${destinations[2][0]}%2C${destinations[2][1]}%7C${destinations[3][0]}%2C${destinations[3][1]}%7C${destinations[4][0]}%2C${destinations[4][1]}&departure_time=now&key=${API_Key}`;
-let epicURL = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${data[0]}%2C${data[1]}&destinations=${destinations[5][0]}%2C${destinations[5][1]}%7C${destinations[6][0]}%2C${destinations[6][1]}%7C${destinations[7][0]}%2C${destinations[7][1]}%7C${destinations[8][0]}%2C${destinations[8][1]}&departure_time=now&key=${API_Key}`;
-let anyURL = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${data[0]}%2C${data[1]}&destinations=${destinations[0][0]}%2C${destinations[0][1]}%7C${destinations[1][0]}%2C${destinations[1][1]}%7C${destinations[2][0]}%2C${destinations[2][1]}%7C${destinations[3][0]}%2C${destinations[3][1]}%7C${destinations[4][0]}%2C${destinations[4][1]}%7C${destinations[5][0]}%2C${destinations[5][1]}%7C${destinations[6][0]}%2C${destinations[6][1]}%7C${destinations[7][0]}%2C${destinations[7][1]}%7C${destinations[8][0]}%2C${destinations[8][1]}&departure_time=now&key=${API_Key}`;
 
+
+//Contains api requests and sorting of return data
 function validation() {
-    dataGather(); //Output: [city, state, pass, travel]
+   let data = dataGather(); //Output: [city, state, pass, travel]
 
-        if(data[2] == "Ikon") {
-        let request = new JSONRequest();
-        request.open("GET", ikonURL);
-        request.send();
-        request.onload = () => {
-            console.log(request);
-            if(request.status == 200) {
-                console.log(JSON.parse(rquest.response));
-            } else {
-                Coneole.log(`error ${request.status} ${request.statusText}`);
-            }
-        }
-    } else if (data[2] == "Epic") {
-        let request = new JSONRequest();
-        request.open("GET", epicURL);
-        request.send();
-        request.onload = () => {
-            console.log(request);
-            if(request.status == 200) {
-                console.log(JSON.parse(rquest.response));
-            } else {
-                Coneole.log(`error ${request.status} ${request.statusText}`);
-            }
-        }
-    } else { // Any
-        let request = new JSONRequest();
-        request.open("GET", anyURL);
-        request.send();
-        request.onload = () => {
-            console.log(request);
-            if(request.status == 200) {
-                console.log(JSON.parse(rquest.response));
-            } else {
-                Coneole.log(`error ${request.status} ${request.statusText}`);
-            }
-        }
+   let API_Key = "AIzaSyBlitlZvj1sHodzk5jiXdXKGbMiCiYXU4k";
+   
+   // URL using imbedded user data and the list of ikon resorts
+   // let ikonURL = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${data[0]}%2C${data[1]}&destinations=${destinations[0][0]}%2C${destinations[0][1]}%7C${destinations[1][0]}%2C${destinations[1][1]}%7C${destinations[2][0]}%2C${destinations[2][1]}%7C${destinations[3][0]}%2C${destinations[3][1]}%7C${destinations[4][0]}%2C${destinations[4][1]}&departure_time=now&key=${API_Key}`;
+    // URL using imbedded user data and the list of epic resorts
+    //let epicURL = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${data[0]}%2C${data[1]}&destinations=${destinations[5][0]}%2C${destinations[5][1]}%7C${destinations[6][0]}%2C${destinations[6][1]}%7C${destinations[7][0]}%2C${destinations[7][1]}%7C${destinations[8][0]}%2C${destinations[8][1]}&departure_time=now&key=${API_Key}`;
+    // URL using imbedded user data and the list of all resorts
+    //let anyURL = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${data[0]}%2C${data[1]}&destinations=${destinations[0][0]}%2C${destinations[0][1]}%7C${destinations[1][0]}%2C${destinations[1][1]}%7C${destinations[2][0]}%2C${destinations[2][1]}%7C${destinations[3][0]}%2C${destinations[3][1]}%7C${destinations[4][0]}%2C${destinations[4][1]}%7C${destinations[5][0]}%2C${destinations[5][1]}%7C${destinations[6][0]}%2C${destinations[6][1]}%7C${destinations[7][0]}%2C${destinations[7][1]}%7C${destinations[8][0]}%2C${destinations[8][1]}&departure_time=now&key=${API_Key}`;
+
+
+    if(data == "Ikon") { //ikon resort API call
+        
+    } else if (data == "Epic") { // Epic resort API call
+        
+    } else { // Any resort api call
+        
     }
 }
 
@@ -102,7 +81,7 @@ abbrState(state);
  console.log(data);   
  return data;  
 }
-  //Function to convert all state inputs to their ISO code and validate for invalid inputs
+//Function to convert all state inputs to their ISO code and validate for invalid inputs
 function abbrState(input1){
     let input = input1;
     var states = [
@@ -171,5 +150,3 @@ function abbrState(input1){
             } 
         }
 } 
-
-let API_Key = AIzaSyBlitlZvj1sHodzk5jiXdXKGbMiCiYXU4k;
