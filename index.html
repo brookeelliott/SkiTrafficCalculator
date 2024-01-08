@@ -14,7 +14,7 @@
                         <h1 id="inputTitle">Where are you located?</h1>
                         <div>
                             <label for="city" style="font-family: 'Courier New', Courier, monospace; color: white">City:</label>
-                            <input id="cityInput" type ="text" class="inputText" size="25" name = "city"><br><br>
+                            <input id="cityInput" type ="text" class="inputText" size="25" name = "city"><br>
                         </div>
                         <div>
                             <label for="state" style="font-family: 'Courier New', Courier, monospace; color: white">State:</label>
@@ -37,15 +37,15 @@
                         <label style="font-family: 'Courier New', Courier, monospace; color: white" for="Epic">Epic</label>
                     </div>
                     </form>
-                    <form class="inputClass" id="Input" name="travelForm">
-                        <h3 id="inputTitle"> What is your travel method?</h3>
+                    <form class="inputClass" id="Input" name="unitForm">
+                        <h3 id="inputTitle">Distance Unit??</h3>
                         <div>
-                            <input type="radio" id="Driving" value="Driving" name="transit" checked>
-                            <label style="font-family: 'Courier New', Courier, monospace; color: white" for="Driving">Driving</label><br>
+                            <input type="radio" id="Miles" value="Miles" name="Unit" checked>
+                            <label style="font-family: 'Courier New', Courier, monospace; color: white" for="Miles">Miles</label><br>
                         </div>
                         <div>
-                            <input type="radio" id="PublicTransit" value="Public Transit" name="transit">
-                            <label style="font-family: 'Courier New', Courier, monospace; color: white" for="PublicTransit">Public Transit</label>
+                            <input type="radio" id="Kilometers" value="Kilometers" name="Unit">
+                            <label style="font-family: 'Courier New', Courier, monospace; color: white" for="Kilometers">Kilometers</label>
                         </div>
                     </form>
             <button id="submit" type="button" value="Submit" onclick="validation()">Submit</button>

@@ -1,21 +1,63 @@
 
 var stateInput = document.querySelector("#stateInput");
 var cityInput = document.getElementById("cityInput");
+var destinations = [ //[city, state, pass, name]
+    ["Copper Mountain", "CO", "Ikon", "Copper Mountain"],
+    ["Winter Park", "CO", "Ikon", "Winter Park"],
+    ["Jackson", "WY", "Ikon", "Jackson Hole Resort"],
+    ["Steamboat Springs", "CO", "Ikon", "Steamboat"],
+    ["Aspen", "CO", "Ikon", "Aspen Resort"],
+    ["Keystone", "CO", "Epic", "Keystone"],
+    ["Breckenridge", "CO", "Epic", "Breckenridge"],
+    ["Vail", "CO", "Epic", "Vail"],
+    ["Telluride", "CO", ,"Epic", "Telluride Resort"],
 
-
+];
+let ikonURL = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${data[0]}%2C${data[1]}&destinations=${destinations[0][0]}%2C${destinations[0][1]}%7C${destinations[1][0]}%2C${destinations[1][1]}%7C${destinations[2][0]}%2C${destinations[2][1]}%7C${destinations[3][0]}%2C${destinations[3][1]}%7C${destinations[4][0]}%2C${destinations[4][1]}&departure_time=now&key=${API_Key}`;
+let epicURL = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${data[0]}%2C${data[1]}&destinations=${destinations[5][0]}%2C${destinations[5][1]}%7C${destinations[6][0]}%2C${destinations[6][1]}%7C${destinations[7][0]}%2C${destinations[7][1]}%7C${destinations[8][0]}%2C${destinations[8][1]}&departure_time=now&key=${API_Key}`;
+let anyURL = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${data[0]}%2C${data[1]}&destinations=${destinations[0][0]}%2C${destinations[0][1]}%7C${destinations[1][0]}%2C${destinations[1][1]}%7C${destinations[2][0]}%2C${destinations[2][1]}%7C${destinations[3][0]}%2C${destinations[3][1]}%7C${destinations[4][0]}%2C${destinations[4][1]}%7C${destinations[5][0]}%2C${destinations[5][1]}%7C${destinations[6][0]}%2C${destinations[6][1]}%7C${destinations[7][0]}%2C${destinations[7][1]}%7C${destinations[8][0]}%2C${destinations[8][1]}&departure_time=now&key=${API_Key}`;
 
 function validation() {
-
     dataGather(); //Output: [city, state, pass, travel]
 
-
+        if(data[2] == "Ikon") {
+        let request = new JSONRequest();
+        request.open("GET", ikonURL);
+        request.send();
+        request.onload = () => {
+            console.log(request);
+            if(request.status == 200) {
+                console.log(JSON.parse(rquest.response));
+            } else {
+                Coneole.log(`error ${request.status} ${request.statusText}`);
+            }
+        }
+    } else if (data[2] == "Epic") {
+        let request = new JSONRequest();
+        request.open("GET", epicURL);
+        request.send();
+        request.onload = () => {
+            console.log(request);
+            if(request.status == 200) {
+                console.log(JSON.parse(rquest.response));
+            } else {
+                Coneole.log(`error ${request.status} ${request.statusText}`);
+            }
+        }
+    } else { // Any
+        let request = new JSONRequest();
+        request.open("GET", anyURL);
+        request.send();
+        request.onload = () => {
+            console.log(request);
+            if(request.status == 200) {
+                console.log(JSON.parse(rquest.response));
+            } else {
+                Coneole.log(`error ${request.status} ${request.statusText}`);
+            }
+        }
+    }
 }
-
-
-
-
-
-
 
 
 //Function that gathers data from the form and outputs [city, state, pass, travel]
@@ -130,4 +172,4 @@ function abbrState(input1){
         }
 } 
 
- 
+let API_Key = AIzaSyBlitlZvj1sHodzk5jiXdXKGbMiCiYXU4k;
