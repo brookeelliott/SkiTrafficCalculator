@@ -62,7 +62,7 @@ async function validation() { //main function
     //Pulls trip distance (in meters) and duration text and puts it in the destinations array
     for(let i = 0; i < travelArray.length; i++){
         if(travelArray[i].status == "ZERO_RESULTS") {
-            document.getElementById('outputHeader').innerHTML = 'Results not found, please check location spelling and try again:';
+            document.getElementById('outputHeader').innerHTML = 'Results not found, please check location spelling and try again.';
         }
         if(pass == destinations[i][1]) {
             destinations[i][3] = travelArray[i].distance.text;
