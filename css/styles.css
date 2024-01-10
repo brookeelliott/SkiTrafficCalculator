@@ -42,7 +42,7 @@ main {
   height:200px;
   position: relative;
   background-color: transparent;
-  top: 70%;
+  top: 80%;
   left: 50%;
   margin-top: -450px;
   margin-left: -100px;
@@ -65,6 +65,7 @@ main {
 #outputHeader {
   color:white;
   background-color: transparent;
+  font-weight: 600;
 }
 #functionOutput {
   color: white;

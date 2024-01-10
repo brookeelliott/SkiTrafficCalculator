@@ -20,7 +20,6 @@ var destinations = [ //[city state, pass, name, holding for time, holding for di
 
 
 async function validation() { //main function
-    document.getElementById('outputHeader').innerHTML = 'Loading travel info...';
     let city = cityInput.value; //Used in validation
     let state = stateInput.value; //Used in validation
 
@@ -28,7 +27,8 @@ async function validation() { //main function
         alert("Please fill out the entire form.");
         return console.log("incomplete form");
     }
-   
+    
+    document.getElementById('outputHeader').innerHTML = 'Loading travel info...';
     let data = dataGather(); //Output: [city + state, pass, travel]
 
     //Uses the url from urlbuilder to hit the distancematrix.ai endpoint, returning an array of distances and times. 
@@ -75,7 +75,7 @@ async function validation() { //main function
         }
     }
 
-    destinations = destinations.sort(({time: a}, {time: b}) => a - b);
+    destinations = destinations.sort(({time: a}, {time: b}) => a - b); //Sorts the destination array by duration value (seconds)
 
     console.log(destinations);
 
@@ -85,9 +85,9 @@ async function validation() { //main function
     let outputString = "";
     for(let i = 0; i < destinations.length; i++) {
         if(pass == destinations[i][1]) {
-            outputString = outputString + destinations[i][2] + ": " + destinations[i][4] + " (" + destinations[i][3] + ")." + "<br><br>";
+            outputString = outputString + "<b>" + destinations[i][2] + "</b>" + ": " + destinations[i][4] + " (" + destinations[i][3] + ")." + "<br>";
         } else if (pass == "Any") {
-            outputString = outputString + destinations[i][2] + ": " + destinations[i][4] + " (" + destinations[i][3] + ")." + "<br><br>";
+            outputString = outputString + "<b>" + destinations[i][2] + "</b>" + ": " + destinations[i][4] + " (" + destinations[i][3] + ")." + "<br>";
         }
     }
     console.log(pass);
