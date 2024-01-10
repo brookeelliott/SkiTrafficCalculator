@@ -16,7 +16,7 @@ var destinations = [ //[city state, pass, name]
 
 
 async function validation() { //main function
-   
+    document.getElementById('outputHeader').innerHTML = 'Loading travel info...';
     let city = cityInput.value; //Used in validation
     let state = stateInput.value; //Used in validation
 
@@ -52,17 +52,34 @@ async function validation() { //main function
         
     let travelArray = await fetchTravelInfo(); //gets data from distance matrix api
     
+    let pass;
+    pass = data[1]; //pass type
     //Pulls trip distance (in meters) and duration text and puts it in the destinations array
     for(let i = 0; i < travelArray.length; i++){
-        destinations[i][3] = travelArray[i].distance.text;
-        destinations[i][4] = travelArray[i].duration.text;
+        if(pass == destinations[i][1]) {
+            destinations[i][3] = travelArray[i].distance.text;
+            destinations[i][4] = travelArray[i].duration.text;
+        } else if (pass == "Any") {
+            destinations[i][3] = travelArray[i].distance.text;
+            destinations[i][4] = travelArray[i].duration.text;
+        }
     }
     console.log(destinations);
 
-
-
-
-
+    //write results back into html page
+    document.getElementById('outputHeader').innerHTML = 'Your travel information is:';
+     
+    let outputString = "";
+    for(let i = 0; i < destinations.length; i++) {
+        if(pass == destinations[i][1]) {
+            outputString = outputString + destinations[i][2] + ": " + destinations[i][4] + " (" + destinations[i][3] + ")." + "<br>";
+        } else if (pass == "Any") {
+            outputString = outputString + destinations[i][2] + ": " + destinations[i][4] + " (" + destinations[i][3] + ")." + "<br>";
+        }
+    }
+    console.log(pass);
+    console.log(outputString);
+    document.getElementById('functionOutput').innerHTML =  `${outputString}`;
 }
 
 
