@@ -46,7 +46,7 @@ main {
   left: 50%;
   margin-top: -450px;
   margin-left: -100px;
-  text-align: center;
+  text-align: left;
   font-family: 'Courier New', Courier, monospace;
   font-size: large;
  }
